@@ -4,13 +4,9 @@ import Container from "./loader";
 
 const App = () => <Container />;
 
+ReactDOM.render(<App />, document.getElementById("root"));
 
 
 
-function App() {
-    console.log("hello is this working?");
 
-}
-
-
-ReactDOM.render(<App />, document.getElementById("root2"));
+console.log("hello is this working?");
