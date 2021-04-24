@@ -17,8 +17,8 @@ body {
   -ms-user-select: none;
   user-select: none;
   cursor: default;
-  background: #27272e;
-  background-image: url(https://awv3node-homepage.surge.sh/build/assets/stars.svg);
+  background: #ffffff;
+  /* background-image: url(https://awv3node-homepage.surge.sh/build/assets/stars.svg); */
 }
 
 #root {

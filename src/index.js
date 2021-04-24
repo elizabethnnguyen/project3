@@ -35,7 +35,7 @@ function Stack({ image, background }) {
           {index === 4 && (
             <animated.img
               style={{
-                transform: f.interpolate([0, 1], ["scale(0.7)", "scale(1)"])
+                transform: f.interpolate([0, 1], ["scale(0.3)", "scale(0.3)"])
               }}
               src={image}
             />
@@ -49,25 +49,24 @@ function Stack({ image, background }) {
 function App() {
   return (
     <div className="main">
-      <a href="index2.html"><Stack image="https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/9qWx-1.png"
-        background="#52649e"/></a>
-
-      <Stack image="https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/T0hA-3.png"
-        background="#f7f295"/>
-      <Stack image="https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/QoXU-2.png"
-        background="#ee7074"/>
-      <Stack image="https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/QoXU-2.png"
-        background="#ee7074"/>
-      <Stack image="https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/9qWx-1.png"
-        background="#52649e"/>
-      <Stack image="https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/T0hA-3.png"
-        background="#f7f295"/>
-      <Stack image="https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/T0hA-3.png"
-        background="#f7f295"/>
-      <Stack image="https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/QoXU-2.png"
-        background="#ee7074"/>
-      <Stack image="https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/9qWx-1.png"
-        background="#52649e"/>
+      <Stack image="https://i.ibb.co/D9c8PsZ/art.png" alt="art"
+        background="#ffffff"/>
+      <Stack image="https://i.ibb.co/2cKMDBz/games.png" alt="games"
+        background="#ffffff"/>
+      <Stack image="https://i.ibb.co/1KWGpth/watch.png" alt="watch"
+        background="#ffffff"/>
+      <Stack image="https://i.ibb.co/yhJXTSz/food.png" alt="food"
+        background="#ffffff"/>
+      <Stack image="https://i.ibb.co/zbBwT1p/memes.png" alt="memes"
+        background="#ffffff"/>
+      <Stack image="https://i.ibb.co/4JXQhbZ/music.png" alt="music"
+        background="#ffffff"/>
+      <Stack image="https://i.ibb.co/jbqSsyb/fashion.png" alt="fashion"
+        background="#ffffff"/>
+      <Stack image="https://i.ibb.co/JQ98MqR/plants.png" alt="plants"
+        background="#ffffff"/>
+      <Stack image="https://i.ibb.co/5MWVq55/environment.png" alt="environment"
+        background="#ffffff"/>
     </div>
   );
 }
