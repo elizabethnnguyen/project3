@@ -122,7 +122,7 @@ class App extends Component {
        return (
          <div className="App">
          <div className="main">
-          <Stack image="https://i.ibb.co/D9c8PsZ/art.png" alt="art"
+          <image src="https://i.ibb.co/D9c8PsZ/art.png" alt="art"
             background="#ffffff" onClick={this.pageUp}/>
           <Stack image="https://i.ibb.co/2cKMDBz/games.png" alt="games"
             background="#ffffff"/>
