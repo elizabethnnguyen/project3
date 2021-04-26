@@ -6,7 +6,7 @@ import "./styles.css";
 
 
 //stacking function//
-function Stack({ image, background, onClick }) {
+function Stack({ image, background }) {
   console.log("hello is this working?");
   const [open, setOpen] = useState(false);
   const { f, r } = useSpring({ f: open ? 0 : 1, r: open ? -3 : 3 });
@@ -77,43 +77,6 @@ class App extends Component {
       value: this.state.value - 1
     });
   }
-
-
-// stackedSquares() {
-//     return (
-//        <div className="main">
-//         <Stack image="https://i.ibb.co/D9c8PsZ/art.png" alt="art"
-//           background="#ffffff" onClick={pageUp()}/>
-//         <Stack image="https://i.ibb.co/2cKMDBz/games.png" alt="games"
-//           background="#ffffff"/>
-//         <Stack image="https://i.ibb.co/1KWGpth/watch.png" alt="watch"
-//           background="#ffffff"/>
-//         <Stack image="https://i.ibb.co/yhJXTSz/food.png" alt="food"
-//           background="#ffffff"/>
-//         <Stack image="https://i.ibb.co/zbBwT1p/memes.png" alt="memes"
-//           background="#ffffff"/>
-//         <Stack image="https://i.ibb.co/4JXQhbZ/music.png" alt="music"
-//           background="#ffffff"/>
-//         <Stack image="https://i.ibb.co/jbqSsyb/fashion.png" alt="fashion"
-//           background="#ffffff"/>
-//         <Stack image="https://i.ibb.co/JQ98MqR/plants.png" alt="plants"
-//           background="#ffffff"/>
-//         <Stack image="https://i.ibb.co/5MWVq55/environment.png" alt="environment"
-//           background="#ffffff"/>
-//       </div>
-//     );
-//   }
-
-  artPage() {
-    return(
-      <div className="art">
-        <p>hello this is the art page</p>
-      </div>
-    );
-  }
-
-
-
   //Render Loop, handles display of the above content
    render() {
      //Check for current value and display corresponding page.
@@ -121,29 +84,9 @@ class App extends Component {
      if (this.state.value === 1) {
        return (
          <div className="App">
-         <div className="main">
-          <Stack image="https://i.ibb.co/D9c8PsZ/art.png" alt="art"
-            background="#ffffff" onClick={this.pageUp}/>
-          <Stack image="https://i.ibb.co/2cKMDBz/games.png" alt="games"
-            background="#ffffff"/>
-          <Stack image="https://i.ibb.co/1KWGpth/watch.png" alt="watch"
-            background="#ffffff"/>
-          <Stack image="https://i.ibb.co/yhJXTSz/food.png" alt="food"
-            background="#ffffff"/>
-          <Stack image="https://i.ibb.co/zbBwT1p/memes.png" alt="memes"
-            background="#ffffff"/>
-          <Stack image="https://i.ibb.co/4JXQhbZ/music.png" alt="music"
-            background="#ffffff"/>
-          <Stack image="https://i.ibb.co/jbqSsyb/fashion.png" alt="fashion"
-            background="#ffffff"/>
-          <Stack image="https://i.ibb.co/JQ98MqR/plants.png" alt="plants"
-            background="#ffffff"/>
-          <Stack image="https://i.ibb.co/5MWVq55/environment.png" alt="environment"
-            background="#ffffff"/>
-        </div>
+           <this.pageHome />
            <div className="App-Footer">
-
-
+            <button onClick={this.pageUp}>Go To Next Page</button>
            </div>
          </div>
        );
@@ -152,16 +95,25 @@ class App extends Component {
      } else if (this.state.value === 2) {
        return (
          <div className="App">
-           <this.artPage />
+           <this.pageTwo />
            <div className="App-Footer">
+             <button onClick={this.pageUp}>Go To Next Page</button>
+             <br></br>
              <button onClick={this.pageDown}>Go To Home Page</button>
+           </div>
+         </div>
+       );
+     } else if (this.state.value === 3) {
+       return (
+         <div className="App">
+           <this.pageThree />
+           <div className="App-Footer">
+             <button onClick={this.pageDown}>Go To Previous Page</button>
            </div>
          </div>
        );
      }
    }
-
-
  }
 
 
@@ -169,6 +121,31 @@ class App extends Component {
   export default App;
 
 
+//how to apply StackedSquares function within the App Class????
 
+function StackedSquares() {
+  return (
+     <div className="main">
+      <Stack image="https://i.ibb.co/D9c8PsZ/art.png" alt="art"
+        background="#ffffff"/>
+      <Stack image="https://i.ibb.co/2cKMDBz/games.png" alt="games"
+        background="#ffffff"/>
+      <Stack image="https://i.ibb.co/1KWGpth/watch.png" alt="watch"
+        background="#ffffff"/>
+      <Stack image="https://i.ibb.co/yhJXTSz/food.png" alt="food"
+        background="#ffffff"/>
+      <Stack image="https://i.ibb.co/zbBwT1p/memes.png" alt="memes"
+        background="#ffffff"/>
+      <Stack image="https://i.ibb.co/4JXQhbZ/music.png" alt="music"
+        background="#ffffff"/>
+      <Stack image="https://i.ibb.co/jbqSsyb/fashion.png" alt="fashion"
+        background="#ffffff"/>
+      <Stack image="https://i.ibb.co/JQ98MqR/plants.png" alt="plants"
+        background="#ffffff"/>
+      <Stack image="https://i.ibb.co/5MWVq55/environment.png" alt="environment"
+        background="#ffffff"/>
+    </div>
+  );
+}
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<StackedSquares />, <App />, document.getElementById("root"));
