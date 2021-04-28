@@ -4,7 +4,6 @@ import ReactDOM from "react-dom";
 import { useSpring, useSprings, animated, interpolate } from "react-spring";
 import "./styles.css";
 
-
 // //stacking function//
 function Stack({ image, background }) {
   console.log("hello is this working?");
@@ -60,59 +59,16 @@ class App extends Component {
     //This establishes the variable used to change the page content
     this.state = { value: 1 };
     //These create bindings for calling the page up and down functions with in the render loop
-    this.pageUp = this.pageUp.bind(this);
-    this.pageDown = this.pageDown.bind(this);
+    this.pageOne = this.pageOne.bind(this);
+    this.pageTwo = this.pageTwo.bind(this);
+    this.pageHomeFromOne = this.pageHomeFromOne.bind(this);
+    this.pageHomeFromTwo = this.pageHomeFromTwo.bind(this);
   }
-
-
- //  //stacking function//
- // Stack({ image, background, imageclick }) {
- //    console.log("hello is this working?");
- //    const [open, setOpen] = useState(false);
- //    const { f, r } = useSpring({ f: open ? 0 : 1, r: open ? -3 : 3 });
- //    const cards = useSprings(
- //      5,
- //      [0, 1, 2, 3, 4].map((i) => ({
- //        opacity: 0.2 + i / 5,
- //        z: open ? (i / 5) * 80 : 0
- //      }))
- //    );
- //    return (
- //      <div
- //        className="container"
- //        onMouseEnter={() => setOpen(true)}
- //        onMouseLeave={() => setOpen(false)}
- //        onClick={() => imageclick}
- //      >
- //        {cards.map(({ z, opacity }, index) => (
- //          <animated.div
- //            style={{
- //              opacity,
- //              background,
- //              transform: interpolate(
- //                [z, f.interpolate([0, 0.2, 0.6, 1], [0, index, index, 0]), r],
- //                (z, f, r) => `translate3d(0,0,${z}px) rotateX(${f * r}deg)`
- //              )
- //            }}
- //          >
- //            {index === 4 && (
- //              <animated.img
- //                style={{
- //                  transform: f.interpolate([0, 1], ["scale(0.3)", "scale(0.3)"])
- //                }}
- //                src={image}
- //              />
- //            )}
- //          </animated.div>
- //        ))}
- //      </div>
- //    );
- //  }
 
 
 
 //Page Up Function, increases "value" by 1
-  pageUp() {
+  pageOne() {
     console.log("test!");
     this.setState({
       value: this.state.value + 1
@@ -120,43 +76,47 @@ class App extends Component {
     console.log(this.state.value);
   }
 
+  pageTwo(){
+    console.log("test!");
+    this.setState({
+      value: this.state.value + 2
+    });
+    console.log(this.state.value);
+  }
+
   //Page Down Function, decreases "value" by 1
-  pageDown() {
+  pageHomeFromOne() {
     this.setState({
       value: this.state.value - 1
     });
   }
-
-
-// stackedSquares() {
-//     return (
-//        <div className="main">
-//         <Stack image="https://i.ibb.co/D9c8PsZ/art.png" alt="art"
-//           background="#ffffff" onClick={pageUp()}/>
-//         <Stack image="https://i.ibb.co/2cKMDBz/games.png" alt="games"
-//           background="#ffffff"/>
-//         <Stack image="https://i.ibb.co/1KWGpth/watch.png" alt="watch"
-//           background="#ffffff"/>
-//         <Stack image="https://i.ibb.co/yhJXTSz/food.png" alt="food"
-//           background="#ffffff"/>
-//         <Stack image="https://i.ibb.co/zbBwT1p/memes.png" alt="memes"
-//           background="#ffffff"/>
-//         <Stack image="https://i.ibb.co/4JXQhbZ/music.png" alt="music"
-//           background="#ffffff"/>
-//         <Stack image="https://i.ibb.co/jbqSsyb/fashion.png" alt="fashion"
-//           background="#ffffff"/>
-//         <Stack image="https://i.ibb.co/JQ98MqR/plants.png" alt="plants"
-//           background="#ffffff"/>
-//         <Stack image="https://i.ibb.co/5MWVq55/environment.png" alt="environment"
-//           background="#ffffff"/>
-//       </div>
-//     );
-//   }
+  pageHomeFromTwo() {
+    this.setState({
+      value: this.state.value - 2
+    });
+  }
 
   artPage() {
     return(
       <div className="art">
+        <h1>Art Inspo:</h1>
         <p>hello this is the art page</p>
+      </div>
+    );
+  }
+
+  gamePage(){
+    return(
+      <div className="game">
+        <h1>Games To Play:</h1>
+        <div className="scroll">
+          <img src="/assets/kena.jpg" alt="kena bridge of spirits" width="500" />
+          <img src="/assets/valheim.png" alt="valheim" width="500" />
+          <img src="/assets/minecraft.png" alt="minecraft" width="500" />
+          <img src="/assets/amongtrees.jpg" alt="among trees" width="500" />
+          <img src="/assets/omori.jpg" alt="omori" width="500" />
+          <img src="/assets/paradiselost.jpg" alt="paradise lost" width="500" />
+        </div>
       </div>
     );
   }
@@ -171,12 +131,14 @@ class App extends Component {
        return (
          <div className="App">
          <div className="main">
-           <div className="imageholder" onClick={this.pageUp}>
+           <div className="imageholder" onClick={this.pageOne}>
               <Stack image="https://i.ibb.co/D9c8PsZ/art.png" alt="art"
               background="#ffffff" />
-            </div>
-          <Stack image="https://i.ibb.co/2cKMDBz/games.png" alt="games"
-            background="#ffffff"/>
+           </div>
+          <div className="imageholder" onClick={this.pageTwo}>
+            <Stack image="https://i.ibb.co/2cKMDBz/games.png" alt="games"
+              background="#ffffff"/>
+          </div>
           <Stack image="https://i.ibb.co/1KWGpth/watch.png" alt="watch"
             background="#ffffff"/>
           <Stack image="https://i.ibb.co/yhJXTSz/food.png" alt="food"
@@ -192,10 +154,6 @@ class App extends Component {
           <Stack image="https://i.ibb.co/5MWVq55/environment.png" alt="environment"
             background="#ffffff"/>
         </div>
-           <div className="App-Footer">
-
-
-           </div>
          </div>
        );
        console.log(this.state.value);
@@ -205,7 +163,16 @@ class App extends Component {
          <div className="App">
            <this.artPage />
            <div className="App-Footer">
-             <button onClick={this.pageDown}>Go To Home Page</button>
+             <button onClick={this.pageHomeFromOne}>Go To Home Page</button>
+           </div>
+         </div>
+       );
+     } else if (this.state.value === 3) {
+       return (
+         <div className="App">
+           <this.gamePage />
+           <div className="App-Footer">
+             <button onClick={this.pageHomeFromTwo}>Go To Home Page</button>
            </div>
          </div>
        );
